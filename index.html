@@ -57,19 +57,19 @@
 								<span class="image main"><img src="images/Skills_image.webp" alt="" /></span>
 								
 								<section>
-									<h3 class="major"><i>Software Development and Engineering</i></h3>
+									<h3 class="major"><i>Software Engineering</i></h3>
 									<p>
-										I create innovative, scalable software solutions with expertise in front-end and back-end development. Passionate about problem-solving, I deliver high-quality code and stay at the forefront of technology to drive success. Here are some of <a href="https://github.com/GeorgeClaudiOfficiel">my projects</a>.
+										I create innovative, scalable software solutions with expertise in front-end and back-end development. Passionate about problem-solving, I deliver high-quality code and stay at the forefront of technology to drive success. Here are some of <a href="https://github.com/GeorgeClaudiOfficiel"><b>my projects</b></a>.
 									</p>
 									<h3 class="major"><i>Electronics Knowledge</i></h3>
 									<p>
 										Expertise in both digital and analog electronics, with a deep understanding of electronic components, circuits and systems. Skilled in designing, analyzing and simulating electronic circuits using advanced tools and software such as Proteus, Fritzing and Matlab.
 									</p>
-									<h3 class="major"><i>Microcontrollers and IOT expertise</i></h3>
+									<h3 class="major"><i>IOT expertise</i></h3>
 									<p>
 										Proficient in programming microcontrollers and developing embedded systems, with experience using tools like Arduino. Knowledgeable in IoT architecture, protocols, and applications, and skilled in working with IoT devices and sensors.
 									</p>
-									<h3 class="major"><i>Networking and Communication Expertise</i></h3>
+									<h3 class="major"><i>Networking Expertise</i></h3>
 									<p>
 										Deep understanding of computer networks, communication protocols, and wireless communication systems, complemented by hands-on experience with networking equipment and configuration. Proficient in networking concepts and adept at ensuring seamless connectivity and efficient network performance.
 									</p>
@@ -97,7 +97,7 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form method="post" action="https://script.google.com/macros/s/AKfycbxNad5SQ3Em69NV9bgLgG7wA_DB8rZbE67ZX6oH88pTFEi3f3G1o7xFEuasSh8P-9JS8w/exec" target="hidden_iframe" onsubmit="formSubmitted(event);">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
@@ -113,12 +113,13 @@
 										</div>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="submit" value="Send Message" id="submitBtn" class="primary" /></li>
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
 								</form>
+								<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="iframeLoaded()"></iframe>
 								<ul class="icons">
-									<li><a href="https://twitter.com/georgeclaudi0" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://twitter.com/georgeclaudi0" class="icon brands fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
 									<li><a href="https://web.facebook.com/profile.php?id=100006490863175" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 									<li><a href="https://www.instagram.com/_georgeclaudio_/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 									<li><a href="https://github.com/GeorgeClaudiOfficiel" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
@@ -144,6 +145,38 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				var submitted = false;
+ 
+				function formSubmitted(event) {
+					submitted = true;
+ 
+					// Change button to 'Sending' state
+					var submitBtn = document.getElementById('submitBtn');
+					submitBtn.disabled = true; // Disable the button to prevent multiple submissions
+					submitBtn.value = 'Sending...';
+					submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending';
+				}
+ 
+				function iframeLoaded() {
+					if (submitted) {
+						submitted = false; // Reset the flag
+ 
+						// Alert the user
+						alert('Your details have been successfully submitted.');
+ 
+						// Reset the button to its original state
+						var submitBtn = document.getElementById('submitBtn');
+						submitBtn.disabled = false; // Re-enable the button
+						submitBtn.value = 'Send Message';
+						submitBtn.innerHTML = 'Send Message';
+ 
+						// Redirect to the home page
+						window.location.href = '/';
+					}
+				}
+			</script>
+
 
 	</body>
 </html>
